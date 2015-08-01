@@ -26,6 +26,7 @@
         var ctx = canvasEl.getContext("2d");
         var game = new PuppyShooter.Game();
         PuppyShooter.score = 0;
+        PuppyShooter.lives = 3;
         var gameView = new PuppyShooter.GameView(game, ctx);
         gameView.start();
       })();
@@ -34,12 +35,16 @@
       <h1 class="scoretext">Score: 0 </h1>
       <br
     </div>
+    <div class="lives">
+      <h1 class="livetext">Lives: 3 </h1>
+      <br
+    </div>
     <div class="gameOver">
       <h1>Game Over</h1>
       <button class="restart"> Restart </button>
     </div>
   </div>
-  <div class = "description">
+  <div class = "description" style="display: none;">
     <h1> Use A,W,S,D for movement </h1>
     <h1> Use arrow keys to shoot </h1>
     <h1> Ghosts only die if you shoot them in the head! </h1>

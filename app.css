@@ -19,3 +19,14 @@
   float: right;
   font-size: 20px;
 }
+
+.lives{
+  display: block;
+  color: red;
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  z-index: 100;
+  float: right;
+  font-size: 20px;
+}
