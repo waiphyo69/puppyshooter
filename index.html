@@ -17,6 +17,19 @@
       </section>
 
     <canvas style="float:left;"></canvas>
+    <div class="score">
+      <h1 class="scoretext">Score: 0</h1>
+      <br>
+    </div>
+    <div class="lives">
+      <h1 class="livetext">Lives: 3</h1>
+      <br>
+    </div>
+    <div class="gameOver">
+      <h1>Game Over</h1>
+      <button class="restart"> Restart </button>
+    </div>
+  </div>
     <link rel="stylesheet" type="text/css" href="app.css">
     <script src="jquery-1.11.3.js"></script>
     <script type="application/javascript" src="vendor/keymaster.js"></script>
@@ -35,30 +48,26 @@
         canvasEl.height = PuppyShooter.Game.DIM_Y;
 
         var ctx = canvasEl.getContext("2d");
-        $(".start-game").on("click",function(){
+        var gameStart = function(){
           $(".instructions").hide();
           var game = new PuppyShooter.Game();
           PuppyShooter.score = 0;
           PuppyShooter.lives = 3;
           $(".score").show();
           $(".lives").show();
-          var gameView = new PuppyShooter.GameView(game, ctx);
-          gameView.start();
-        })
+          PuppyShooter.gameView = new PuppyShooter.GameView(game, ctx);
+          PuppyShooter.gameView.start();
+        };
+        $(".start-game").on("click", gameStart);
+        $(".restart").on("click", function(){
+          PuppyShooter.gameView.stop();
+          $(".gameOver").hide();
+          $(".scoretext").html("Score: 0");
+          $(".livetext").html("Lives: 3");
+          ctx.clearRect(0,0,1000,600);
+          gameStart();
+        });
     })()
     </script>
-    <div class="score">
-      <h1 class="scoretext">Score: 0</h1>
-      <br>
-    </div>
-    <div class="lives">
-      <h1 class="livetext">Lives: 3</h1>
-      <br>
-    </div>
-    <div class="gameOver">
-      <h1>Game Over</h1>
-      <button class="restart"> Restart </button>
-    </div>
-  </div>
   </body>
 </html>
