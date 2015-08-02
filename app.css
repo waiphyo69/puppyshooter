@@ -2,6 +2,7 @@
   display: none;
   color: red;
   position: absolute;
+  top: 100px;
   width: 800px;
   height: 800px;
   z-index: 100;
@@ -9,8 +10,12 @@
   font-size: 30px;
 }
 
+body{
+  font-family: sans-serif;
+}
+
 .score{
-  display: block;
+  display: none;
   color: red;
   position: absolute;
   width: 800px;
@@ -21,12 +26,39 @@
 }
 
 .lives{
-  display: block;
+  display: none;
   color: red;
   position: absolute;
+  top: 100px;
   width: 800px;
   height: 800px;
   z-index: 100;
   float: right;
   font-size: 20px;
+}
+
+ul{
+  list-style: none;
+}
+.instructions{
+  color: white;
+  display: block;
+  z-index: 50;
+  margin: auto;
+  padding: 25px;
+  text-align: center;
+  background: url("https://cutecorgipuppies.files.wordpress.com/2011/09/cute-corgi.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 400px;
+}
+
+button.start-game, button.restart{
+  z-index: 100;
+  font-size: 20px;
+  padding: 5px;
+}
+
+button.start-game:hover, button.restart:hover{
+  cursor: pointer;
+  background-color: red;
 }
